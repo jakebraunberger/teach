@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{sagetex}
+\usepackage{forloop}
+
+\begin{document}
+
+\begin{sagesilent}
+    var('A, B, y')
+    A = matrix([[randint(-11,11), randint(-11,11)], [randint(-11,11), randint(-11,11)]])
+    B = vector([randint(-11,11),randint(-11,11)])
+
+
+    var('C, D')
+    C = matrix([[randint(-11,11), randint(-11,11)], [randint(-11,11), randint(-11,11)]])
+    D = vector([randint(-11,11),randint(-11,11)])
+
+\end{sagesilent}
+
+\section*{Solve the linear system if possible.}
+\begin{equation}
+\begin{split}
+	\sage{A[0][0]} x + \sage{A[0][1]} y &= \sage{B[0]} \\
+	\sage{A[1][0]} x + \sage{A[1][1]} y &= \sage{B[1]}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+	\sage{C[0][0]} x + \sage{C[0][1]} y &= \sage{D[0]} \\
+	\sage{C[1][0]} x + \sage{C[1][1]} y &= \sage{D[1]}
+\end{split}
+\end{equation}
+
+\end{document}
