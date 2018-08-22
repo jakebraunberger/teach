@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\usepackage{sagetex}
+
+ 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+ 
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+ \newenvironment{example}[2][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\begin{document}
+\title{Homework 1}
+\author{Christian}
+\maketitle
+For a review of how to convert units, check out 
+https://youtu.be/XKCZn5MLKvk
+
+\begin{example}{1}
+Suppose there are 200 apples in one bushel. Convert 2 apples to bushels.
+
+Note that
+\begin{equation}
+\label{eq:conv}
+	200 \; \rm{apples} = 1 \; \rm{bushel}
+\end{equation}
+
+This will be used to determine our conversion factor later.
+
+Start by writing the quantity and units we want to convert on the left and the units we want converted
+into on the right like this:
+\[
+2 \; \rm{apples} \cdot \frac{\rm{conversion \;factor}}{\rm{conversion \;factor}} = \rm{?} \; \rm{bushels}
+\]
+
+To determine the conversion factor, look at Eq. \ref{eq:conv} above. The units `apples' have to go in the
+bottom of the fraction since that's what we're converting \textit{from}.
+
+So we have
+\[
+	2 \; \rm{apples} \cdot \frac{1 \; \rm{bushel}}{200 \; \rm{apples}} = \rm{?} \; \rm{bushels}
+\]
+Performing the multiplication, we find $2$ apples $= 0.01$ bushels.
+
+\end{example}
+
+\begin{sagesilent}
+from random import randint
+var('A,B,C,D')
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+\end{sagesilent}
+
+\begin{problem}{1}
+Suppose there are $\sage{A}$ crows in a murder. Convert 2 crows to murders.
+\end{problem}
+
+\begin{problem}{2}
+Suppose there are $\sage{B}$ Sickles in a Galleon. Convert 20 Sickles to Galleons.
+\end{problem}
+
+\begin{problem}{3}
+Suppose there are $\sage{C}$ pounds of lumber in a chord. Convert 3 chords to pounds of lumber.
+\end{problem}
+
+\begin{problem}{4}
+Suppose there are $\sage{D}$ parrots in a pandemonium. Convert 4 pandemoniums to parrots.
+\end{problem}
+
+
+
+
+\end{document}
