@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\usepackage{sagetex}
+\usepackage{ifthen}
+
+ 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+ 
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+ \newenvironment{example}[2][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+\title{Homework 3}
+\author{xxx}
+\maketitle
+
+
+
+\begin{sagesilent}
+from random import randint
+import random
+from datetime import datetime
+random.seed(datetime.now())
+import numpy as np
+var('A,B,C,D')
+\end{sagesilent}
+
+
+
+
+%ppps
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = B
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{1}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$ and the distance
+$\mid \overline{AB}\mid $.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = A
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{2}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$ and the distance
+$\mid \overline{AB}\mid $.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{3}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+var('m')
+y = function('y')
+m = randint(-5,5)
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+LA = text('A', (A,B+.1*max(D,B,max(y(A),y(C)))))
+S = point([C,D])
+LS = text('B', (C,D))
+y(x) = (B+D)/2.0 + m*(x-(A+C)/2.0)
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+LS = text('B', (C,D+.03*max(D,B,max(y(A),y(C)))))
+T = plot(y, (x, min(A,C), max(A,C)))
+\end{sagesilent}
+
+\sageplot{P+Q+S+T+LA+LS}
+
+\begin{problem}{4}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+Then, determine if
+\[
+y(x) = \sage{y(x)}
+\]
+bisects $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+
+%ppps
+\begin{sagesilent}
+var('m')
+y = function('y')
+m = randint(-5,5)
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+S = point([C,D])
+LS = text('B', (C,D))
+y(x) = (B+D)/2.0 + m*(x-(A+C)/2) + 1
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+LS = text('B', (C,D+.03*max(D,B,max(y(A),y(C)))))
+T = plot(y, (x, min(A,C), max(A,C)))
+\end{sagesilent}
+
+\sageplot{P+Q+S+T+LA+LS}
+
+\begin{problem}{5}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+Then, determine if
+\[
+y(x) = \sage{y(x)}
+\]
+bisects $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+B = randint(4,20)
+C = randint(10, 1000)
+\end{sagesilent}
+
+
+
+\end{document}

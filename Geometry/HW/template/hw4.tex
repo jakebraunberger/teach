@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\usepackage{sagetex}
+\usepackage{ifthen}
+
+ 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+ 
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+ \newenvironment{example}[2][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+\title{Homework 3}
+\author{xxx}
+\maketitle
+
+
+
+\begin{sagesilent}
+from random import randint
+import random
+from datetime import datetime
+random.seed(datetime.now())
+import numpy as np
+var('A,B,C,D')
+\end{sagesilent}
+
+
+
+%horizontal line
+%ppps5
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = B
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{1}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+$\mid \overline{AB}\mid $.
+\end{problem}
+%pppe
+
+%vertical line
+%ppps5
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = A
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{2}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the distance
+$\mid \overline{AB}\mid $.
+\end{problem}
+%pppe
+
+
+
+
+
+
+
+% both horizontal and vertical
+%ppps5
+\begin{sagesilent}
+var('m')
+y = function('y')
+m = randint(-5,5)
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = B
+E = C
+F = randint(10, 300)
+
+P = line([[A,B],[C,D]])
+Q = line([[C,D],[E,F]])
+R = point([A,B])
+S = point([C,D])
+T = point([E,F])
+
+
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+LB = text('B', (C+.03*C, D))
+LC = text('C', (1.03*E, F))
+
+\end{sagesilent}
+
+\sageplot{P+Q+R+S+T+LA+LB+LC}
+
+\begin{problem}{5}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+Then, determine if
+\[
+y(x) = \sage{y(x)}
+\]
+bisects $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+
+
+
+\end{document}

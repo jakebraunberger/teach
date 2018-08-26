@@ -1,0 +1,226 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\usepackage{sagetex}
+\usepackage{ifthen}
+
+ 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+ 
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+ \newenvironment{example}[2][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+\title{Homework 3}
+\author{Elli}
+\maketitle
+
+
+
+\begin{sagesilent}
+from random import randint
+import random
+from datetime import datetime
+random.seed(datetime.now())
+import numpy as np
+var('A,B,C,D')
+\end{sagesilent}
+
+
+
+
+%ppps
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = B
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{1}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$ and the distance
+$\mid \overline{AB}\mid $.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = A
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{2}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$ and the distance
+$\mid \overline{AB}\mid $.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+S = point([C,D])
+\end{sagesilent}
+
+\sageplot{P+Q+S}
+
+\begin{problem}{3}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+var('m')
+y = function('y')
+m = randint(-5,5)
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+LA = text('A', (A,B+.1*max(D,B,max(y(A),y(C)))))
+S = point([C,D])
+LS = text('B', (C,D))
+y(x) = (B+D)/2.0 + m*(x-(A+C)/2.0)
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+LS = text('B', (C,D+.03*max(D,B,max(y(A),y(C)))))
+T = plot(y, (x, min(A,C), max(A,C)))
+\end{sagesilent}
+
+\sageplot{P+Q+S+T+LA+LS}
+
+\begin{problem}{4}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+Then, determine if
+\[
+y(x) = \sage{y(x)}
+\]
+bisects $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+
+%ppps
+\begin{sagesilent}
+var('m')
+y = function('y')
+m = randint(-5,5)
+A = randint(10,100)
+B = randint(10,200)
+C = randint(10,300)
+D = randint(10,50)
+P = line([[A,B],[C,D]])
+Q = point([A,B])
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+S = point([C,D])
+LS = text('B', (C,D))
+y(x) = (B+D)/2.0 + m*(x-(A+C)/2) + 1
+LA = text('A', (A,B+.03*max(D,B,max(y(A),y(C)))))
+LS = text('B', (C,D+.03*max(D,B,max(y(A),y(C)))))
+T = plot(y, (x, min(A,C), max(A,C)))
+\end{sagesilent}
+
+\sageplot{P+Q+S+T+LA+LS}
+
+\begin{problem}{5}
+Given $A(\sage{A},\,\sage{B})$ and $B(\sage{C},\,\sage{D})$,
+calculate the midpoint of $\overline{AB}$.
+Then, determine if
+\[
+y(x) = \sage{y(x)}
+\]
+bisects $\overline{AB}$.
+\end{problem}
+%pppe
+
+
+%ppps
+\begin{sagesilent}
+B = randint(4,20)
+C = randint(10, 1000)
+\end{sagesilent}
+
+% \begin{problem}{Superfluous Information and Totally Contrived}
+% Mark Everett, member of one of the greatest bands of all time, \textit{The Eels}, was at a concert by \textit{The Who} when he
+% was hit in the eye with a laser. Everyone knows British people are a practical people and in this case practical means cheap. Infrared radiation causes eye
+% damage and cheap lasers have lousy filters, so even if the
+% laser beam is green, some infrared can come through and damage the eyes. Mark Everett's father Hugh Everett is the pioneer
+% of the Many World's Interpretation of quantum mechanics, which goes a little something like this: every choice you make and every choice everyone else has ever made has an element of chance involved at a very fundamental level (think quantum mechanics). Now, rather than discarding all of these things that
+% never happened as being merely things that have never happened,
+% Hugh Everett says they definitely happened, just not in our universe. So, you didn't choose to not wear such and such clothes this morning, you just exist in the universe where you chose to wear the clothes you're wearing. In a perfectly physically valid alternate universe, you wore something entirely different.
+% \newline
+% Imagine you're in one of these alternate universes where Dickinson, New England, and Hettinger are collinear and the distance from Hettinger to New England is $\sage{B}$ times as far as the distance from New England to Dickinson. Also suppose in this alternate universe, the distance from New England to Dickinson is $\sage{C}$ miles.
+% \newline
+% \newline
+% What is the distance from Dickinson to Hettinger?
+% \end{problem}
+%pppe
+
+
+\end{document}

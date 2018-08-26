@@ -1,6 +1,7 @@
 class Header:
 	""" Produces header for latex file """
-
+	def __init__(self, author):
+		self.author = author
 	def __str__(self):
 		return """\\documentclass[12pt]{article}
 
@@ -38,7 +39,7 @@ class Header:
 
 			\\begin{document}\n\n\n
 			\\title{HW 2}
-			\\author{}
+			\\author{""" + self.author + """}
 			\\date{}
 			\\maketitle
 I've completely randomized the following problems so you won't be able to cheat. Recall how to 
